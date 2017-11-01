@@ -18,6 +18,9 @@ public class EntregasModel {
 		this.dataHoraEntrega = dataHoraEntrega;
 	}
 
+	public EntregasModel() {
+	}
+
 	public int getId() {
 		return id;
 	}

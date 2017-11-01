@@ -6,12 +6,8 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
 
-	public Connection getConnection() {
-		try {
-			return DriverManager.getConnection(
-					"jdbc:mysql://localhost/logistica", "root", "root");
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
+	public Connection getConnection() throws SQLException {
+		DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+		return DriverManager.getConnection("jdbc:mysql://localhost:3306/logistica", "root", "root");
 	}
 }

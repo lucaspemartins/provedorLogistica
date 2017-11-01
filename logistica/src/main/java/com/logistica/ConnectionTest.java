@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class ConnectionTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 
 		ConnectionFactory connectionFactory = new ConnectionFactory();
 		Connection conn = connectionFactory.getConnection();

@@ -8,11 +8,14 @@ import java.sql.SQLException;
 public class EntregasDAO {
 	
 	public void insert(Connection conn, EntregasModel entrega) throws SQLException{
-		String sql = "insert into entregas (numero_pedido, id_cliente) values (?, ?);";
+		String sql = "insert into entregas (numero_pedido, id_cliente, nome_recebedor, cpf_recebedor, data_hora_entrega) values (?, ?, ?, ?, ?);";
 		PreparedStatement pstm;
 		pstm = conn.prepareStatement(sql);
 		pstm.setString(1, entrega.getNumeroPedido());
 		pstm.setInt(2, entrega.getIdCliente());
+		pstm.setString(3, entrega.getNomeRecebedor());
+		pstm.setString(4, entrega.getCpfRecebedor());
+		pstm.setString(5, entrega.getDataHoraEntrega());
 		pstm.execute();
 	}
 	

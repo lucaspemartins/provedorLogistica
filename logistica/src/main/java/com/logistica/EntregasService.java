@@ -24,6 +24,9 @@ public class EntregasService {
 			Connection conn = connectionFactory.getConnection();
 			EntregasDAO entregaDAO = new EntregasDAO();
 			entrega = entregaDAO.getById(conn, numeroPedido);
+			if (entrega.getId() == null) {
+				return Response.status(Response.Status.NOT_FOUND).build();
+			}
 			return Response.status(Response.Status.OK).entity(entrega).build();
 		} catch (Exception e) {
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e).build();
@@ -38,6 +41,9 @@ public class EntregasService {
 		try {
 			Connection conn = connectionFactory.getConnection();
 			EntregasDAO entregaDAO = new EntregasDAO();
+			if (entrega.getNumeroPedido() == null || entrega.getIdCliente() == null) {
+				return Response.status(Response.Status.BAD_REQUEST).build();
+			}
 			entregaDAO.insert(conn, entrega);
 			return Response.status(Response.Status.OK).build();
 		} catch (Exception e) {

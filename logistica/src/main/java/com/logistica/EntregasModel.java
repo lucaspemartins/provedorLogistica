@@ -1,9 +1,9 @@
 package com.logistica;
 
 public class EntregasModel {
-	private int id;
+	private Integer id;
 	private String numeroPedido;
-	private int idCliente;
+	private Integer idCliente;
 	private String nomeRecebedor;
 	private String cpfRecebedor;
 	private String dataHoraEntrega;
@@ -21,7 +21,7 @@ public class EntregasModel {
 	public EntregasModel() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -37,7 +37,7 @@ public class EntregasModel {
 		this.numeroPedido = numeroPedido;
 	}
 
-	public int getIdCliente() {
+	public Integer getIdCliente() {
 		return idCliente;
 	}
 
